@@ -85,13 +85,22 @@ var renderActions=function(actionList){
         _.each(lists,function(cards,list){
             switch (list){
                 case "Done":
-                    buffer+="### I finished:";
+                    buffer+="### We finished:";
                 break;
                 case "Doing":
-                    buffer+="### I got started with:";
+                    buffer+="### We got started with:";
                 break;
                 case "To Do":
-                    buffer+="### I added to my Todo list:";
+                    buffer+="### We added to the Todo list:";
+                break;
+                case "Testing":
+                    buffer+="### We added to the Testing list:";
+                break;
+                case "Backlog (unassigned)":
+                    buffer+="### We added to the backlog list:";
+                break;
+                case "In Progress":
+                    buffer+="### We added to the in progress list:";
                 break;
             }
             buffer+="\n";
@@ -119,7 +128,7 @@ var getStartDate=function(time){
         startDate.setDate(startDate.getDate()-startDate.getDay()+1);//we need it to start on Monday
     }
     if (time=="Monthly"){
-    startDate.setDate(startDate.getDate()-startDate.getDay()-30);//we need it to start on Monday
+    startDate.setDate(startDate.getDate()-startDate.getDay()-30);
     }
     startDate.setUTCHours(0);
     startDate.setMinutes(0);
