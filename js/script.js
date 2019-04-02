@@ -93,14 +93,8 @@ var renderActions=function(actionList){
                 case "To Do":
                     buffer+="### We added to the Todo list:";
                 break;
-                case "Testing":
-                    buffer+="### We added to the Testing list:";
-                break;
-                case "Backlog (unassigned)":
-                    buffer+="### We added to the backlog list:";
-                break;
-                case "In Progress":
-                    buffer+="### We added to the in progress list:";
+                default:
+                    buffer+="### We added to another list:";
                 break;
             }
             buffer+="\n";
@@ -128,7 +122,7 @@ var getStartDate=function(time){
         startDate.setDate(startDate.getDate()-startDate.getDay()+1);//we need it to start on Monday
     }
     if (time=="Monthly"){
-    startDate.setDate(startDate.getDate()-startDate.getDay()-30);
+    startDate.setDate(startDate.getDate()-startDate.getDay()-90);
     }
     startDate.setUTCHours(0);
     startDate.setMinutes(0);
